@@ -1,5 +1,6 @@
 package io.github.yandhi.client
 
+import io.github.yandhi.client.event.EventBus
 import io.github.yandhi.client.plugin.Plugins
 
 /**
@@ -12,12 +13,12 @@ class Client(val label: String, val version: String) {
     /**
      * the encapsulation of the plugins.
      */
-    private val plugins = Plugins(this)
+    val plugins = Plugins()
 
     /**
-     * the actual collection of plugins.
+     * The event bus that the client has.
      */
-    fun getPlugins() = plugins.plugins
+    val eventBus = EventBus()
 }
 
 /**

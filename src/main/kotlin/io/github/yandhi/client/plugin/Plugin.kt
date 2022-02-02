@@ -46,12 +46,12 @@ open class TogglePlugin(label: String) : Plugin(label) {
  * creates a plugin.
  */
 fun plugin(label: String, client: Client, lambda: (Plugin) -> Unit) {
-    client.getPlugins().add(Plugin(label).apply(lambda))
+    client.plugins.add(Plugin(label).apply(lambda))
 }
 
 /**
  * Creates a toggle plugin.
  */
 fun toggle(label: String, client: Client, lambda: (TogglePlugin) -> Unit) {
-    client.getPlugins().add(TogglePlugin(label).apply(lambda))
+    client.plugins.add(TogglePlugin(label).apply(lambda))
 }

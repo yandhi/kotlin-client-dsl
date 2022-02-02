@@ -1,6 +1,6 @@
 package io.github.yandhi.client.plugin
 
-import io.github.yandhi.client.Client
+import java.util.*
 
 /**
  * Holds a collection of plugins.
@@ -9,9 +9,26 @@ import io.github.yandhi.client.Client
  * a client will have these.
  * </p>
  */
-class Plugins(val client: Client) {
+class Plugins {
     /**
      * the collection that we are encapsulating.
      */
-    val plugins = mutableListOf<Plugin>()
+    private val plugins = hashMapOf<String, Plugin>()
+
+    /**
+     * Adds a plugin to the collection.
+     */
+    fun add(plugin: Plugin) {
+        plugins[plugin.label.lowercase()] = plugin
+    }
+
+    /**
+     * Gets a plugin by just the string.
+     */
+    fun get(plugin: String) = Optional.ofNullable(plugins[plugin.lowercase()])
+
+    /**
+     * Gets the plugins.
+     */
+    fun getPlugins() = plugins
 }
