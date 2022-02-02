@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ClientDSLExampleTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-02-02T22:34:15" hostname="jacksons-Air.wifi.gsu.edu" time="0.023">
+  <properties/>
+  <testcase name="testDSL()" classname="ClientDSLExampleTest" time="0.023"/>
+  <system-out><![CDATA[1
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
