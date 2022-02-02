@@ -156,7 +156,6 @@ fabric.properties
 # *.ipr
 
 build/
-.gradle/
 .idea/
 
 # Sonarlint plugin
