@@ -155,7 +155,9 @@ fabric.properties
 # .idea/misc.xml
 # *.ipr
 
-.idea/*
+build/
+.gradle/
+.idea/
 
 # Sonarlint plugin
 # https://plugins.jetbrains.com/plugin/7973-sonarlint
