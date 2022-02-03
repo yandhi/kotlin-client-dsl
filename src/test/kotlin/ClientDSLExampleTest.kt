@@ -11,7 +11,7 @@ class ClientDSLExampleTest {
 
             }
 
-            println(it.getPlugins().size)
+            println(it.plugins.getPlugins().size)
         }
     }
 }
