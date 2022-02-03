@@ -21,6 +21,16 @@ open class TogglePlugin(label: String) : Plugin(label) {
     var running = false
 
     /**
+     * Runs on enable.
+     */
+    val enablers = arrayListOf<() -> Unit>()
+
+    /**
+     * Runs on disable.
+     */
+    val disablers = arrayListOf<() -> Unit>()
+
+    /**
      * Toggles the running state of the plugin.
      */
     fun toggle() {
@@ -34,11 +44,11 @@ open class TogglePlugin(label: String) : Plugin(label) {
     }
 
     fun enable() {
-
+        enablers.forEach { it.invoke() }
     }
 
     fun disable() {
-
+        disablers.forEach { it.invoke() }
     }
 }
 
@@ -54,4 +64,18 @@ fun plugin(label: String, client: Client, lambda: (Plugin) -> Unit) {
  */
 fun toggle(label: String, client: Client, lambda: (TogglePlugin) -> Unit) {
     client.plugins.add(TogglePlugin(label).apply(lambda))
+}
+
+/**
+ * Adds an enabler.
+ */
+fun enable(plugin: TogglePlugin, lambda: () -> Unit) {
+    plugin.enablers.add(lambda)
+}
+
+/**
+ * Adds a disabler.
+ */
+fun disable(plugin: TogglePlugin, lambda: () -> Unit) {
+    plugin.disablers.add(lambda)
 }
