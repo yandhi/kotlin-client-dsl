@@ -11,5 +11,25 @@ Any jvm-based project ☕️
 ## How do I use it⁉️
 Simply download the source and add into your sources. (we do this because the usage of inline functions is wonky with compiled libraries in kotlin, and the event system relies on these functions).
 
+## Sample Usage
+```kotlin
+  fun init() {
+       client("client", "1.0.0") { client ->
+            plugin("testplugin", client) {
+
+            }
+            toggle("testtoggle", client) {
+                enable(it) {
+                    println("enabling...")
+                }
+                disable(it) {
+                    println("disabling...")
+                }
+            }
+        }
+  }
+
+```
+
 ## Examples 😁!
 [Minecraft 1.18.1 Fabric Mod](https://github.com/yandhi/client-dsl-example)
